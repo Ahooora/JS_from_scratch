@@ -40,9 +40,9 @@ describe('Functions tests', () => {
   test('4. getRandomItemFromArray should return random item', () => {
     const testSample = ['John', 'Doe', '3', 'Hello world!', '5'];
     console.log(`4. Testing sample is: ${testSample}`);
-    expect(
-      testSample.includes(getRandomItemFromArray(testSample))
-    ).toBeTruthy();
+    expect(getRandomItemFromArray(testSample)).toMatch(
+      new RegExp(testSample.join('|'))
+    );
   });
 
   test('5. shuffleMyArray return shuffled array', () => {
