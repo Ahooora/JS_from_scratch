@@ -145,9 +145,9 @@ function checkPalindrome(str) {
 
 function getFactorial(num) {
   // Your code here
-  if (num === 0 || num === 1){
-    return 1
-  }
+  if (num === 0 || num === 1) return 1
+  if (num < 0 ) return 0
+  
   for(let i = num - 1; i >= 1; i--){
     num *= i
   }
