@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: 'js/app.bundle.js',
     path: path.resolve(__dirname, 'build'),
+    assetModuleFilename: 'assets/[hash][ext][query]',
   },
   devServer: {
     static: {
@@ -63,14 +64,8 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'assets',
-          },
-        },
+        test: /\.(jpg?g|png|svg|gif)$/,
+        type: 'asset/resource',
       },
     ],
   },
