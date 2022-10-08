@@ -4,6 +4,8 @@
 
 - Open [index.js](./src/index.js) with code editor you prefer.
 - Implement the following landing page using DOM manipulation.
+- Open [styled.css](./src/css/styled.css) with code editor you prefer..
+- Implement the following landing page styles as in the image bellow.
 
 ![dom_Homework](./src/assets/dom_Homework.jpg)
 
