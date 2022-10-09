@@ -1,3 +1,11 @@
+/**
+ * Render the following catApi response in the html as a table. The table should looks like this
+ *
+ * | id  | url                                       | image                                                 |
+ * | --- | ----------------------------------------- | ----------------------------------------------------- |
+ * | 123 | https://cdn2.thecatapi.com/images/3v7.gif | <img src="https://cdn2.thecatapi.com/images/3v7.gif"> |
+ */
+
 const catsApi = [
   {
     breeds: [],
@@ -65,7 +73,6 @@ const catsApi = [
 ];
 
 // Write your code here
-
 // Solution is
 // console.log(decrypt({
 //   iv: '49aabbf34b41a464073ba1bf58637b05',
