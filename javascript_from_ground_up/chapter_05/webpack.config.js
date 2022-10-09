@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: 'js/app.bundle.js',
     path: path.resolve(__dirname, 'build'),
-    assetModuleFilename: 'assets/[hash][ext][query]',
+    assetModuleFilename: 'assets/[name][ext][query]',
   },
   devServer: {
     static: {
