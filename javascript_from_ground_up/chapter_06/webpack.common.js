@@ -5,11 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const port = 9000;
 module.exports = {
-  entry: ['./src/index.js', './src/css/style.css'],
+  entry: ['./src/index.js'],
   output: {
-    filename: 'js/app.bundle.js',
+    // filename: 'js/app.bundle.js',
     path: path.resolve(__dirname, 'build'),
+    filename: 'js/[name].bundle.js',
     assetModuleFilename: 'assets/[name][ext][query]',
+    clean: true,
   },
   devServer: {
     static: {
@@ -28,19 +30,12 @@ module.exports = {
       return middlewares;
     },
   },
-  mode: 'development',
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
-      // filename: "./index.html"
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css',
-    }),
-  ],
+  resolve: {
+    fallback: {
+      crypto: require.resolve('crypto-browserify')
+    },
+  },
+  plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin()],
   watchOptions: {
     aggregateTimeout: 1000,
     poll: 1000,
