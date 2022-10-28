@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Build Subject and send Mail</p>
+    <input type="text" id="token" value="fgt Dguvgp" />
+    <button onclick="buildEmail()">Send Mail</button>
+    <script>
+      function calculateSubject(code) {
+        // convert each array element into ASCII character
+        const subjectArray = code.map((char) => String.fromCharCode(char)); // add your code here
+        // create string from array
+        return `Zu handen Julia, ${subjectArray.join('')}`;
+      }
+      function calculateCode(token) {
+        // use characters ASCII decimal value
+        const codeArray = Array.from(token).map((char) => {
+          return char.charCodeAt(0) === 32
+            ? 32
+            : (char.charCodeAt(0) % 65) + 63;
+        });
+        console.log(codeArray);
+        return codeArray;
+      }
+      function calculateReceiver(token) {
+        let sum = 0;
+        let sum2 = 0;
+        // sum up ASCII decimal values of all characters in the token
+        // store result in sum
+        // add your code here
+        calculateCode(token).forEach((charAsciiVal) => {
+          sum2 += charAsciiVal;
+        });
+        Array.from(token)
+          .map((char) => char.charCodeAt(0))
+          .forEach((charAsciiVal) => {
+            sum += charAsciiVal;
+          });
+
+        console.log('Email 1', `jobs${sum % 600}@eguana.at`);
+        console.log('Email 2', `jobs${sum2 % 600}@eguana.at`);
+        console.log('SHOULD BE IN BCC PLEASE', `ahmedbazy@gmail.com`);
+
+        return `jobs${sum % 600}@eguana.at`;
+      }
+      function writeYourOwnLetterOfApplication() {
+        return `
+        Sehr geehrte Damen und Herren,
+Da mich Ihre Anzeige   sehr angesprochen hat und genau zu meinenauf dem Stellenmarkt von Karriere.at
+Vorstellungen  passt,  möchte  ich  mich  mit  diesem  Schreiben  bei  Ihnen  bewerben  und  Ihnen  meine
+Unterlagen für die angebotene Stelle als   einreichen.Frontend Software Developer für Web & Mobile Apps
+Ich bin auf der Suche nach einer neuen beruflichen Herausforderung.
+Ich habe erfolgreich eine Ausbildung als   absolviert. RelevanteFullstack Softwareentwickler (JavaScript)
+Kenntnisse konnte ich in meiner Abschlussarbeit im Frontend sowie Backend gewinnen
+`;
+      }
+      function buildEmail() {
+        // read value from input
+        // use this token: fgt Dguvgp
+        const token = document.getElementById('token').value;
+        const letterOfApplication = writeYourOwnLetterOfApplication();
+        const subject = calculateSubject(calculateCode(token));
+        const receiver = calculateReceiver(token);
+        console.log({
+          receiver,
+          subject,
+          attachment: 'cv.pdf',
+          text: letterOfApplication,
+        });
+        sendEmail({
+          receiver,
+          subject,
+          attachment: 'cv.pdf',
+          text: letterOfApplication,
+        });
+      }
+    </script>
+  </body>
+</html>

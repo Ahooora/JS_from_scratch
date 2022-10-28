@@ -86,7 +86,7 @@ const newTable = document.createElement('table')
 
 
 function createTable(array) {
-  result = ''
+  let result = ''
   for (let i = 0; i < array.length; i++) {
     result += `<tr>
                   <td>${array[i].id}</td>
