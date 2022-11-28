@@ -12,3 +12,96 @@ body {
 
 /* Write your style here  */
 /* If you need and image, you can find all resources in assets folder. */
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.img-container {
+  background-image: url(/src/assets/bg.png);
+
+  width: 50%;
+  height: 100%;
+}
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  padding: 50px;
+}
+.login-form-container {
+  width: 350px;
+}
+.login-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+.login-section:nth-of-type(3) {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+.login-section:nth-of-type(3) input {
+  border: 1px solid #e8e8e8;
+  margin: 0;
+}
+.input-form {
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  color: #2d3748;
+  font-size: 14px;
+  height: 50px;
+  padding: 17px 20px;
+  width: 100%;
+}
+.form-login-button {
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  height: 50px;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  width: 100%;
+  background-color: #04c35c;
+}
+.login-with-google-button {
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  height: 50px;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: background 0.3s ease-out;
+  width: 100%;
+  background-color: #2d3748;
+}
+.google-icon {
+  margin-right: 10px;
+}
+.no-account-container {
+  color: #616161;
+  margin-top: 50px;
+  text-align: center;
+}
+.hint {
+  color: red;
+  font-weight: 400;
+  padding-left: 5px;
+}
